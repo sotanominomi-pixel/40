@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>N Clock — Full</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+  <div class="wrap">
+    <div id="display" class="time-display">00:00:00</div>
+
+    <div class="slider-box" id="sliderContainer">
+      <div class="label-row">
+        <div>1日の長さ</div>
+        <div id="labelHours">24 時間</div>
+      </div>
+      <input id="sliderHours" type="range" min="12" max="48" step="1" value="24">
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="mode">
+      <button id="tabClock" class="active">時計</button>
+      <button id="tabStopwatch">ストップウォッチ</button>
+      <button id="tabAlarm">アラーム</button>
+      <button id="tabSettings">設定</button>
+    </div>
+
+    <!-- Stopwatch Area -->
+    <div id="stopwatchArea" style="display:none; margin-top:12px; text-align:center;">
+      <div class="controls">
+        <button id="startBtn" class="btn-circle btn-start">Start</button>
+        <button id="lapBtn" class="btn-lap" disabled>Lap</button>
+        <button id="resetBtn" class="btn-reset" disabled>Reset</button>
+      </div>
+      <div class="laps" id="laps"></div>
+    </div>
+
+    <!-- Alarm Area -->
+    <div id="alarmArea" style="display:none; margin-top:12px; text-align:center;">
+      <button id="addAlarmBtn" class="btn-add-alarm">＋ アラーム追加</button>
+      <div id="alarmsList"></div>
+    </div>
+
+    <!-- Settings Area -->
+    <div id="settingsArea" style="display:none; margin-top:12px; text-align:center;">
+      <label><input type="checkbox" id="showSeconds"> 秒表示</label>
+    </div>
+
+    <div class="footer">設定は自動で保存されます。</div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
